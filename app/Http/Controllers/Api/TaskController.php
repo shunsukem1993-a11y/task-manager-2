@@ -33,3 +33,4 @@ class TaskController extends Controller
 
         return new TaskResource($task);
     }
+}
