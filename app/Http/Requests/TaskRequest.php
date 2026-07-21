@@ -23,10 +23,10 @@ class TaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id' => 'required|exists:categories,id',
-            'title' => 'required','string','max:255',Rule::unique('tasks', 'title')->ignore($this->task),
-            'description' => 'nullable','string',
-            'priority' => 'required','integer','in:1,2,3',
+            'category_id' => ['required', 'exists:categories,id',],
+            'title' => ['required','string','max:255',Rule::unique('tasks', 'title')->ignore($this->task),],
+            'description' => ['nullable','string',],
+            'priority' => ['required','integer','in:1,2,3',],
         ];
     }
 
