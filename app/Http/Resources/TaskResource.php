@@ -18,14 +18,14 @@ class TaskResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'prioruty' => $this->priority,
+            'priority' => $this->priority,
             'priority_label' => $this->priority_label,
             'category' => [
                 'id' => $this->category->id,
-                'name' => $this->category->name,];
+                'name' => $this->category->name,],
             'user' => [
                 'id' => $this->user->id,
-                'name' => $this->user->name,];
+                'name' => $this->user->name,],
             'created_at' => $this->created_at->toIso8601String(),
             'updated_at' => $this->updated_at->toIso8601String(),
         ];
