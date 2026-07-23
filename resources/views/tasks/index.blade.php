@@ -17,14 +17,46 @@
             </h2>
 
             <form action="{{ route('tasks.index') }}" method="GET">
-                <div class="flex gap-2">
-                    <input
-                        type="text"
-                        name="keyword"
-                        value="{{ $keyword ?? request('keyword') }}"
-                        placeholder="タイトルを入力してください"
-                        class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
+                <div class="space-y-4">
+
+                    {{-- タイトル検索 --}}
+                    <div>
+                        <label for="keyword" class="block text-sm font-medium text-gray-700 mb-1">
+                            タイトル
+                        </label>
+
+                        <input
+                            type="text"
+                            name="keyword"
+                            value="{{ $keyword ?? request('keyword') }}"
+                            placeholder="タイトルを入力してください"
+                            class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                    </div>
+
+                    {{-- 優先度ソート --}}
+                    <div>
+                        <label for="sort" class="block text-sm font-medium text-gray-700 mb-1">
+                            優先度
+                        </label>
+
+                        <select
+                            id="sort"
+                            name="sort"
+                            class="w-full border border-gray-300 rounded px-3 py-2"
+                        >
+                            <option value="">並び替えを選択してください</option>
+
+                            <option value="high" {{ $sort === 'high' ? 'selected' : '' }}>
+                                優先度が高い順
+                            </option>
+
+                         <option value="low" {{ $sort === 'low' ? 'selected' : '' }}>
+                              優先度が低い順
+                            </option>
+                        </select>
+
+                    </div>
 
                     <button
                         type="submit"
@@ -37,7 +69,7 @@
         
         {{-- 検索結果メッセージ --}}
         @if(request()->has('keyword'))
-            @if($keyword === '')
+            @if(blank($keyword))
                 <p>検索キーワードが入力されていないため、全件表示しています。</p>
             @elseif($tasks->isEmpty())
                 <p>「{{ $keyword }}」に一致するタスクは見つかりませんでした。</p>

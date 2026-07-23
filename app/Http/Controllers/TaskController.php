@@ -14,18 +14,23 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-        $keyword = trim($request->input('keyword', ''));
+        $keyword = $request->input('keyword');
+        $sort = $request->input('sort');
 
         $tasks = auth()->user()->tasks()
-          ->with('category')
-            ->when($keyword !== '', function ($query) use ($keyword) {
+            ->with('category')
+            ->when($request->filled('keyword'), function ($query) use ($keyword) {
                 $query->where('title', 'like', "%{$keyword}%");
             })
-            ->orderBy('priority', 'desc')
-            ->orderBy('created_at', 'desc')
-        ->get();
+            ->when($sort === 'high', function ($query) {
+                $query->orderBy('priority', 'desc');
+            })
+            ->when($sort === 'low', function ($query) {
+                $query->orderBy('priority', 'asc');
+            })
+            ->get();
 
-        return view('tasks.index', compact('tasks', 'keyword'));
+        return view('tasks.index', compact('tasks', 'keyword', 'sort'));
     }
 
        public function create()
