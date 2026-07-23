@@ -115,35 +115,35 @@ http://localhost
 
 ## テスト実行
 
-    PHPUnitによるテストを実行する場合は、以下のコマンドを実行してください。
-    ```bash
-    ./vendor/bin/sail test
-    ```
-    特定のテストファイルのみを実行する場合は、以下のように指定できます。
-    CategoryControllerTestを実行
-    ```bash
-    ./vendor/bin/sail test tests/Feature/CategoryControllerTest.php
-    ```
-    TaskControllerTestを実行
-    ```bash
-    ./vendor/bin/sail test tests/Feature/TaskControllerTest.php
-    ```
-    AuthenticationTestを実行
-    ```bash
-    ./vendor/bin/sail test tests/Feature/AuthenticationTest.php
-    ```
-    RegistrationTestを実行
-    ```bash
-    ./vendor/bin/sail test tests/Feature/RegistrationTest.php
-    ```
-    UnauthenticatedRedirectTestを実行
-    ```bash
-    ./vendor/bin/sail test tests/Feature/UnauthenticatedRedirectTest.php
-    ```
-    ApiTaskTestを実行
-    ```bash
-    ./vendor/bin/sail test tests/Feature/ApiTaskTest.php
-    ```
+PHPUnitによるテストを実行する場合は、以下のコマンドを実行してください。
+```bash
+./vendor/bin/sail test
+```
+特定のテストファイルのみを実行する場合は、以下のように指定できます。
+CategoryControllerTestを実行
+```bash
+./vendor/bin/sail test tests/Feature/CategoryControllerTest.php
+```
+TaskControllerTestを実行
+```bash
+./vendor/bin/sail test tests/Feature/TaskControllerTest.php
+```
+AuthenticationTestを実行
+```bash
+./vendor/bin/sail test tests/Feature/AuthenticationTest.php
+```
+RegistrationTestを実行
+```bash
+./vendor/bin/sail test tests/Feature/RegistrationTest.php
+```
+UnauthenticatedRedirectTestを実行
+```bash
+./vendor/bin/sail test tests/Feature/UnauthenticatedRedirectTest.php
+```
+ApiTaskTestを実行
+```bash
+./vendor/bin/sail test tests/Feature/ApiTaskTest.php
+ ```
 
 ## 機能一覧
 
