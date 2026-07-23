@@ -84,7 +84,7 @@ http://localhost
     ```bash
     Laravelのアプリケーションキーを生成します。
     ./vendor/bin/sail artisan key:generate
-    ```bash
+    ```
 
 6. **データベースのマイグレーションと初期データ投入**
 
