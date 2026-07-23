@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\TaskRequest;
 use App\Models\Category;
 use App\Models\Task;
@@ -11,15 +12,20 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = trim($request->input('keyword', ''));
+
         $tasks = auth()->user()->tasks()
-            ->with('category')
+          ->with('category')
+            ->when($keyword !== '', function ($query) use ($keyword) {
+                $query->where('title', 'like', "%{$keyword}%");
+            })
             ->orderBy('priority', 'desc')
             ->orderBy('created_at', 'desc')
-            ->get();
+        ->get();
 
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks', 'keyword'));
     }
 
        public function create()
