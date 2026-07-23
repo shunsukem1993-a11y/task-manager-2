@@ -60,73 +60,90 @@ http://localhost
     ```
 
 2. **.envファイルの準備**
-    ```bash
+    
     .env.exampleをコピーして.envファイルを作成します。
+    ```bash
     cp .env.example .env
     ```
 
 3. **Composer依存パッケージのインストール**
 
-    ```bash
     Composerで依存パッケージをインストールします。
+    ```bash
     composer install
     ```
 
 4. **Laravel Sailの起動**
 
-    ```bash
     Dockerコンテナを起動します。
+    ```bash
     ./vendor/bin/sail up -d
     ```
 
 5. **アプリケーションキーの生成**
 
-    ```bash
     Laravelのアプリケーションキーを生成します。
+    ```bash
     ./vendor/bin/sail artisan key:generate
     ```
 
 6. **データベースのマイグレーションと初期データ投入**
 
-    ```bash
     テーブルを作成し、必要に応じてシーダーを実行します。
+    ```bash
     ./vendor/bin/sail artisan migrate --seed
+    ```
     ※シーダーを使用していない場合は、以下を実行してください。
+    ```bash
     ./vendor/bin/sail artisan migrate
     ```
 
 7. **フロントエンドのビルド**
 
-    ```bash
     Node.jsの依存パッケージをインストールし、開発用ビルドを実行します。
+    ```bash
     npm install
     npm run dev
     ```
 
 8. **アプリケーションへのアクセス**
 
-    ```bash
     ブラウザで以下のURLにアクセスします。
+    ```bash
     http://localhost
     ```
 
 ## テスト実行
 
     PHPUnitによるテストを実行する場合は、以下のコマンドを実行してください。
+    ```bash
     ./vendor/bin/sail test
+    ```
     特定のテストファイルのみを実行する場合は、以下のように指定できます。
-    # CategoryControllerTestを実行
+    CategoryControllerTestを実行
+    ```bash
     ./vendor/bin/sail test tests/Feature/CategoryControllerTest.php
-    # TaskControllerTestを実行
+    ```
+    TaskControllerTestを実行
+    ```bash
     ./vendor/bin/sail test tests/Feature/TaskControllerTest.php
-    # AuthenticationTestを実行
+    ```
+    AuthenticationTestを実行
+    ```bash
     ./vendor/bin/sail test tests/Feature/AuthenticationTest.php
-    # RegistrationTestを実行
+    ```
+    RegistrationTestを実行
+    ```bash
     ./vendor/bin/sail test tests/Feature/RegistrationTest.php
-    # UnauthenticatedRedirectTestを実行
+    ```
+    UnauthenticatedRedirectTestを実行
+    ```bash
     ./vendor/bin/sail test tests/Feature/UnauthenticatedRedirectTest.php
-    # ApiTaskTestを実行
+    ```
+    ApiTaskTestを実行
+    ```bash
     ./vendor/bin/sail test tests/Feature/ApiTaskTest.php
+    ```
 
 ## 機能一覧
 
