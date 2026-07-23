@@ -39,8 +39,8 @@ erDiagram
         int priority
     }
 
-    users ||--o{ tasks : has_many
-    categories ||--o{ tasks : has_many
+    users ||--o{ tasks : "has many"
+    categories ||--o{ tasks : "has many"
 ```
 
 ## 開発環境URL
