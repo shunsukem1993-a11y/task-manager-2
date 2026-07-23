@@ -20,35 +20,27 @@
 ```mermaid
 erDiagram
     users {
-        id PK
-        name
-        email
-        password
-        created_at
-        updated_at
+        int id PK
+        string name
+        string email
     }
 
     categories {
-        id PK
-        name
-        created_at
-        updated_at
+        int id PK
+        string name
     }
 
     tasks {
-        id PK
-        user_id FK
-        category_id FK
-        title
-        description
-        priority
-        due_date
-        created_at
-        updated_at
+        int id PK
+        int user_id FK
+        int category_id FK
+        string title
+        string description
+        int priority
     }
 
-    users ||--o{ tasks : "has many"
-    categories ||--o{ tasks : "has many"
+    users ||--o{ tasks : has_many
+    categories ||--o{ tasks : has_many
 ```
 
 ## 開発環境URL
