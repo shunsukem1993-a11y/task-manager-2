@@ -56,46 +56,59 @@ http://localhost
 1. **リポジトリをクローン**
 
     ```bash
-    git clone http://github.com/shunsukem1993-a11y/task-manager-2.git
+    git clone https://github.com/shunsukem1993-a11y/task-manager-2.git
     ```
 
 2. **.envファイルの準備**
-
+    ```bash
     .env.exampleをコピーして.envファイルを作成します。
     cp .env.example .env
+    ```
 
 3. **Composer依存パッケージのインストール**
 
+    ```bash
     Composerで依存パッケージをインストールします。
     composer install
+    ```
 
 4. **Laravel Sailの起動**
 
+    ```bash
     Dockerコンテナを起動します。
     ./vendor/bin/sail up -d
+    ```
 
 5. **アプリケーションキーの生成**
 
+    ```bash
     Laravelのアプリケーションキーを生成します。
     ./vendor/bin/sail artisan key:generate
+    ```bash
 
 6. **データベースのマイグレーションと初期データ投入**
 
+    ```bash
     テーブルを作成し、必要に応じてシーダーを実行します。
     ./vendor/bin/sail artisan migrate --seed
     ※シーダーを使用していない場合は、以下を実行してください。
     ./vendor/bin/sail artisan migrate
+    ```
 
 7. **フロントエンドのビルド**
 
+    ```bash
     Node.jsの依存パッケージをインストールし、開発用ビルドを実行します。
     npm install
     npm run dev
+    ```
 
 8. **アプリケーションへのアクセス**
 
+    ```bash
     ブラウザで以下のURLにアクセスします。
     http://localhost
+    ```
 
 ## テスト実行
 
