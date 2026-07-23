@@ -142,6 +142,8 @@ http://localhost
 本アプリケーションで提供している主なREST APIの一覧です。
 
 タスクAPI
-| HTTPメソッド | |URI | | 概要 |
-| GET | | /api/tasks | | タスク一覧を取得 |
-| GET | | /api/tasks/{id} | | タスク詳細を取得 |
+
+| HTTPメソッド | URI | 概要 |
+|--------------|-----|------|
+| GET | /api/tasks | タスク一覧を取得 |
+| GET | /api/tasks/{id} | タスク詳細を取得 |
